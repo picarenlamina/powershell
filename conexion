@@ -1,0 +1,9 @@
+
+if (Test-Connection 8.8.8.8  -Quiet) 
+{
+    Write-Output "Conexion"
+}
+else
+{
+    Write-Output "Sin Conexion"
+}
